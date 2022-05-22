@@ -1,0 +1,37 @@
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardbody {
+  width: 20rem;
+  height: 100%;
+  position: relative;
+  border: solid 1px #55caef;
+  border-radius: 10px;
+  padding: 1rem;
+  padding-top: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.cardsubject {
+  font-family: "ABeeZee-Regular";
+  font-size: 14px;
+  color: #bababa;
+}
+.cardtitle {
+  font-family: "Akshar-Regular";
+  font-size: 35px;
+  color: #000;
+}
+.cardcategorieborder {
+}
+.cardcategorie {
+}
+.cardcontent {
+}
+.carddescription {
+}
+.carddate {
+}

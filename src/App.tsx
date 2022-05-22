@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import NavBar from "./Components/Navigation/NavBar";
-import Notes from "./Components/Notes/Notes";
+import NotesList from "./Components/Notes/NotesList";
 
 function App() {
   return (
     <Fragment>
       <NavBar />
-      <Notes />
+      <NotesList />
     </Fragment>
   );
 }

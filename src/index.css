@@ -37,6 +37,16 @@ code {
   src: url(../public/Assets/Fonts/Akshar-SemiBold.ttf) format("truetype");
   font-display: auto;
 }
+@font-face {
+  font-family: "ABeeZee-Italic";
+  src: url(../public/Assets/Fonts/ABeeZee-Italic.ttf) format("truetype");
+  font-display: auto;
+}
+@font-face {
+  font-family: "ABeeZee-Regular";
+  src: url(../public/Assets/Fonts/ABeeZee-Regular.ttf) format("truetype");
+  font-display: auto;
+}
 
 /*Responsive Css Classes*/
 
