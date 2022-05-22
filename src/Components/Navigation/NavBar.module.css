@@ -1,0 +1,30 @@
+/*Nav is purly for postioning*/
+.nav {
+  position: fixed;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
+}
+/*Make changes to NavBar not nav*/
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0.5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.logo {
+  margin: 0rem;
+  text-transform: uppercase;
+  font-family: "Akshar-Light";
+  color: #646464;
+  font-size: 2rem;
+}
