@@ -3,7 +3,7 @@ import classes from "./Button.module.css";
 
 type ButtonProps = {
   onClick: () => void;
-  children: string;
+  children: React.ReactNode;
 };
 
 const Button: React.FC<ButtonProps> = (props) => {
