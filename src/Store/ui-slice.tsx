@@ -1,6 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+interface uiHandlers {
+  addNoteIsActive: boolean;
+}
+
+const initialState: uiHandlers = {
   addNoteIsActive: false,
 };
 
@@ -8,9 +12,10 @@ const uiSlice = createSlice({
   name: "UI",
   initialState: initialState,
   reducers: {
-    addNoteHandler(state, action) {
+    addNoteHandler(state) {
       state.addNoteIsActive = !state.addNoteIsActive;
     },
+    test(state, actions: PayloadAction<boolean>) {},
   },
 });
 

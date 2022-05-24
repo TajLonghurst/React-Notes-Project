@@ -1,11 +1,18 @@
 import React, { Fragment } from "react";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../Store/ui-slice";
 import classes from "./AddNotes.module.css";
-import Overlay from "./Overlay";
+import Overlay from "../UI/Overlay";
 
 const AddNotes = () => {
+  const dispatch = useDispatch();
+  const overlayClickHandler = () => {
+    dispatch(uiActions.addNoteHandler());
+  };
+
   return (
     <Fragment>
-      <Overlay />
+      <Overlay onClick={overlayClickHandler} />
       <div className={classes.container}>
         <div className={classes.cardbody}>
           <div className={classes.cardcolorcontainer}>

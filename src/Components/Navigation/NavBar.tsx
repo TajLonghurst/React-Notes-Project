@@ -1,9 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import Button from "../UI/Button";
 import classes from "./NavBar.module.css";
+import { uiActions } from "../../Store/ui-slice";
 
 const NavBar = () => {
-  const btnOnClickHandler = () => {};
+  const dispatch = useDispatch();
+  const btnOnClickHandler = () => {
+    dispatch(uiActions.addNoteHandler());
+  };
 
   return (
     <nav className={classes.nav}>
