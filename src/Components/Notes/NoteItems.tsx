@@ -1,10 +1,18 @@
 import React from "react";
 import classes from "./NoteItems.module.css";
+import DeleteIcon from "../../Assets/Icons/bx-trash.svg";
 
 const NoteItems = () => {
   return (
     <div className={classes.container}>
       <div className={classes.cardbody}>
+        <div className={classes.cardbtn}>
+          <img
+            className={classes.deleteicon}
+            src={DeleteIcon}
+            alt="Icon Failed"
+          />
+        </div>
         <p className={classes.cardsubject}>Running</p>
         <h1 className={classes.cardtitle}>Gym Work</h1>
         <div className={classes.cardcategorieborder}>

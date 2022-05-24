@@ -1,0 +1,213 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1002;
+  transform: translate(-50%, -50%);
+}
+.cardbody {
+  background-color: #fff;
+  width: 35rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 15px;
+  border: solid 2px #d7d7d7;
+  padding-bottom: 1.5rem;
+}
+.cardcolorcontainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 0.75rem;
+  border-radius: 50px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: -1.35rem;
+  margin-right: -1.1rem;
+}
+.cardcolorgreen,
+.cardcolorblue,
+.cardcolorpurple,
+.cardcolorpink,
+.cardcolororange {
+  position: relative;
+  content: "";
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.cardcolorgreen {
+  background-color: #55ef80;
+}
+.cardcolorblue {
+  background-color: #55caef;
+}
+.cardcolorpurple {
+  background-color: #7d55ef;
+}
+.cardcolorpink {
+  background-color: #ef558c;
+}
+.cardcolororange {
+  background-color: #ef5555;
+}
+.inputsubject,
+.inputtitle,
+.inputcategorie,
+.textareadescription {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #d7d7d7;
+  font-size: 1.5rem;
+  font-family: "Akshar-Regular";
+}
+.inputsubject {
+  width: 15rem;
+}
+.inputtitle {
+  width: 30rem;
+}
+.inputcategorie {
+  width: 15rem;
+}
+.subjecttext,
+.titletext,
+.categorietext {
+  user-select: none;
+  background-color: #fff;
+  padding: 0.4rem;
+  padding-top: 0rem;
+  position: relative;
+  margin-bottom: 7px;
+  margin-left: 7px;
+  font-family: "AbeeZee-Regular";
+  font-size: 0.65rem;
+  color: #9e9e9e;
+  top: 18px;
+  left: 2px;
+  max-width: 100%;
+  width: fit-content;
+}
+.textareadescription {
+  margin-top: 2rem;
+  font-family: "AbeeZee-Regular";
+  font-size: 0.75rem;
+  padding: 0.8rem;
+  resize: none;
+  height: 10rem;
+}
+.btncontainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.addbtn {
+  padding: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-family: "Akshar-Regular";
+  font-size: 20px;
+  color: #9e9e9e;
+  background-color: #fff;
+  border-radius: 50px;
+  border: 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.addbtn:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+@media (max-width: 576px) {
+  .cardbody {
+    width: 20rem;
+  }
+  .inputsubject {
+    width: 15rem;
+  }
+  .inputtitle {
+    width: 19rem;
+  }
+  .inputcategorie {
+    width: 15rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .cardbody {
+    width: 25rem;
+  }
+  .inputsubject {
+    width: 15rem;
+  }
+  .inputtitle {
+    width: 24rem;
+  }
+  .inputcategorie {
+    width: 15rem;
+  }
+}
+@media (min-width: 768px) {
+  .cardbody {
+    width: 35rem;
+  }
+  .inputsubject {
+    width: 15rem;
+  }
+  .inputtitle {
+    width: 30rem;
+  }
+  .inputcategorie {
+    width: 15rem;
+  }
+}
+@media (min-width: 992px) {
+  .cardbody {
+    width: 35rem;
+  }
+  .inputsubject {
+    width: 15rem;
+  }
+  .inputtitle {
+    width: 30rem;
+  }
+  .inputcategorie {
+    width: 15rem;
+  }
+}
+@media (min-width: 1200px) {
+  .cardbody {
+    width: 35rem;
+  }
+  .inputsubject {
+    width: 15rem;
+  }
+  .inputtitle {
+    width: 30rem;
+  }
+  .inputcategorie {
+    width: 15rem;
+  }
+}
+@media (min-width: 1400px) {
+  .cardbody {
+    width: 35rem;
+  }
+  .inputsubject {
+    width: 15rem;
+  }
+  .inputtitle {
+    width: 30rem;
+  }
+  .inputcategorie {
+    width: 15rem;
+  }
+}

@@ -14,37 +14,42 @@ code {
 
 @font-face {
   font-family: "Akshar-Bold";
-  src: url(../public/Assets/Fonts/Akshar-Bold.ttf) format("truetype");
+  src: url(./Assets/Fonts/Akshar-Bold.ttf) format("truetype");
   font-display: auto;
 }
 @font-face {
   font-family: "Akshar-Light";
-  src: url(../public/Assets/Fonts/Akshar-Light.ttf) format("truetype");
+  src: url(./Assets/Fonts/Akshar-Light.ttf) format("truetype");
   font-display: auto;
 }
 @font-face {
   font-family: "Akshar-Medium";
-  src: url(../public/Assets/Fonts/Akshar-Medium.ttf) format("truetype");
+  src: url(./Assets/Fonts/Akshar-Medium.ttf) format("truetype");
   font-display: auto;
 }
 @font-face {
   font-family: "Akshar-Regular";
-  src: url(../public/Assets/Fonts/Akshar-Regular.ttf) format("truetype");
+  src: url(./Assets/Fonts/Akshar-Regular.ttf) format("truetype");
   font-display: auto;
 }
 @font-face {
   font-family: "Akshar-SemiBold";
-  src: url(../public/Assets/Fonts/Akshar-SemiBold.ttf) format("truetype");
+  src: url(./Assets/Fonts/Akshar-SemiBold.ttf) format("truetype");
   font-display: auto;
 }
 @font-face {
   font-family: "ABeeZee-Italic";
-  src: url(../public/Assets/Fonts/ABeeZee-Italic.ttf) format("truetype");
+  src: url(./Assets/Fonts/ABeeZee-Italic.ttf) format("truetype");
   font-display: auto;
 }
 @font-face {
   font-family: "ABeeZee-Regular";
-  src: url(../public/Assets/Fonts/ABeeZee-Regular.ttf) format("truetype");
+  src: url(./Assets/Fonts/ABeeZee-Regular.ttf) format("truetype");
+  font-display: auto;
+}
+@font-face {
+  font-family: "Timmana-Regular";
+  src: url(./Assets/Fonts/Timmana-Regular.ttf) format("truetype");
   font-display: auto;
 }
 
