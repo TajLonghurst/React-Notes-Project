@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
-import { uiActions } from "../../Store/ui-slice";
+import { uiActions } from "../../../Store/ui-slice";
 import classes from "./AddNotes.module.css";
-import Overlay from "../UI/Overlay";
+import Overlay from "../../UI/Overlay";
 
 const AddNotes = () => {
   const dispatch = useDispatch();

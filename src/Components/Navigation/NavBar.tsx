@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <nav className={classes.nav}>
       <div className={classes.navbar}>
-        <h1 className={classes.logo}>Note 2 Self</h1>
+        <h1 className={classes.logo}>N2S</h1>
         <div className={classes.navBtn}>
           <Button onClick={btnOnClickHandler}>Creat Note</Button>
         </div>

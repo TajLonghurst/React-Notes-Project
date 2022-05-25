@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface uiHandlers {
   addNoteIsActive: boolean;
+  viewNoteIsActive: boolean;
 }
 
 const initialState: uiHandlers = {
   addNoteIsActive: false,
+  viewNoteIsActive: false,
 };
 
 const uiSlice = createSlice({
@@ -14,6 +16,9 @@ const uiSlice = createSlice({
   reducers: {
     addNoteHandler(state) {
       state.addNoteIsActive = !state.addNoteIsActive;
+    },
+    viewNoteHandler(state) {
+      state.viewNoteIsActive = !state.viewNoteIsActive;
     },
     test(state, actions: PayloadAction<boolean>) {},
   },

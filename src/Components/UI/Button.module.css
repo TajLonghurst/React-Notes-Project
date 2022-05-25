@@ -8,6 +8,7 @@
   color: #6e6e6e;
   font-family: "Akshar-Regular";
   font-size: 1.1rem;
+  cursor: pointer;
 }
 .btn:hover {
   background-color: #d8d8d8;
