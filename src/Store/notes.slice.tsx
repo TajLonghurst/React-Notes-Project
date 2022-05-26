@@ -1,13 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface NoteItemArry {
-  id: number;
+  id?: number;
   subject: string;
   title: string;
   categorie: string;
-  decription: string;
+  description: string;
   color: string;
-  date: string;
+  date?: string;
 }
 
 interface notesHandlers {
@@ -22,7 +22,7 @@ const notesSlice = createSlice({
   name: "NOTES",
   initialState: initialState,
   reducers: {
-    addNote(state) {
+    addNote(state, actions: PayloadAction<NoteItemArry>) {
       const D = new Date();
       const day = ("0" + D.getDate()).slice(-2);
       const month = ("0" + (D.getMonth() + 1)).slice(-2);
@@ -33,11 +33,11 @@ const notesSlice = createSlice({
         ...state.noteItems,
         {
           id: 1,
-          subject: "Running",
-          title: "Gym Work",
-          categorie: "Avtivity",
-          decription: "new",
-          color: "#fff",
+          subject: actions.payload.subject,
+          title: actions.payload.title,
+          categorie: actions.payload.categorie,
+          description: actions.payload.description,
+          color: actions.payload.color,
           date: date,
         },
       ];

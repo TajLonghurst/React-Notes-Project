@@ -66,7 +66,15 @@ const AddNotes = () => {
       return;
     }
 
-    dispatch(notesActions.addNote());
+    dispatch(
+      notesActions.addNote({
+        subject: entredSubjectValue,
+        title: entredTitleValue,
+        categorie: entredCategorieValue,
+        description: entredDescriptionValue,
+        color: "#fff",
+      })
+    );
     resetSubjectInput();
     resetTitleInput();
     resetCategorieInput();
@@ -119,7 +127,6 @@ const AddNotes = () => {
             id="subject"
             className={subjectInputHasError}
           />
-          {entredSubjectHasError && <p>Please dont leave</p>}
           <label className={classes.titletext} htmlFor="title">
             Title
           </label>
