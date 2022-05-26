@@ -64,13 +64,18 @@
 .inputsubject,
 .inputtitle,
 .inputcategorie,
-.textareadescription {
+.textareadescription,
+.inputsubjecterror,
+.inputtitleerror,
+.inputcategorieerror,
+.textareadescriptionerror {
   padding: 0.5rem;
   border-radius: 10px;
   border: 1px solid #d7d7d7;
   font-size: 1.5rem;
   font-family: "Akshar-Regular";
 }
+
 .inputsubject {
   width: 15rem;
 }
@@ -78,6 +83,19 @@
   width: 30rem;
 }
 .inputcategorie {
+  width: 15rem;
+}
+
+.inputsubjecterror {
+  border: red 1px solid;
+  width: 15rem;
+}
+.inputtitleerror {
+  border: red 1px solid;
+  width: 30rem;
+}
+.inputcategorieerror {
+  border: red 1px solid;
   width: 15rem;
 }
 .subjecttext,
@@ -105,6 +123,15 @@
   padding: 0.8rem;
   resize: none;
   height: 10rem;
+}
+.textareadescriptionerror {
+  margin-top: 2rem;
+  font-family: "AbeeZee-Regular";
+  font-size: 0.75rem;
+  padding: 0.8rem;
+  resize: none;
+  height: 10rem;
+  border: red 1px solid;
 }
 .btncontainer {
   margin-top: 2rem;
