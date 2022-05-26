@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "../../../Store/ui-slice";
 import classes from "./AddNotes.module.css";
 import Overlay from "../../UI/Overlay";
+import { motion } from "framer-motion";
+import { NotesOpenAnimation } from "../../../Animations/Notes-Animations";
 
 const AddNotes = () => {
   const dispatch = useDispatch();
@@ -14,7 +16,13 @@ const AddNotes = () => {
     <Fragment>
       <Overlay onClick={overlayClickHandler} />
       <div className={classes.container}>
-        <div className={classes.cardbody}>
+        <motion.div
+          variants={NotesOpenAnimation}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className={classes.cardbody}
+        >
           <div className={classes.cardcolorcontainer}>
             <div className={classes.cardcolorgreen}></div>
             <div className={classes.cardcolorblue}></div>
@@ -45,7 +53,7 @@ const AddNotes = () => {
           <div className={classes.btncontainer}>
             <button className={classes.addbtn}>Add</button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </Fragment>
   );

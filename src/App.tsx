@@ -5,6 +5,7 @@ import NotesList from "./Components/Notes/NotesList";
 import { RootState } from "./Store";
 import { useSelector } from "react-redux";
 import { ModalViewNotes } from "./Components/Modals/ViewNotes/ModalViewNotes";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const addNoteIsActive = useSelector(
@@ -16,8 +17,20 @@ function App() {
 
   return (
     <Fragment>
-      {addNoteIsActive && <ModalAddNotes />}
-      {ViewNotesIsActive && <ModalViewNotes />}
+      <AnimatePresence
+        initial={true}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {addNoteIsActive && <ModalAddNotes />}
+      </AnimatePresence>
+      <AnimatePresence
+        initial={true}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {ViewNotesIsActive && <ModalViewNotes />}
+      </AnimatePresence>
       <NavBar />
       <NotesList />
     </Fragment>

@@ -4,6 +4,8 @@ import DeleteIcon from "../../../Assets/Icons/bx-trash.svg";
 import Overlay from "../../UI/Overlay";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../../Store/ui-slice";
+import { NotesOpenAnimation } from "../../../Animations/Notes-Animations";
+import { motion } from "framer-motion";
 
 const ViewNotes = () => {
   const dispatch = useDispatch();
@@ -16,7 +18,13 @@ const ViewNotes = () => {
     <Fragment>
       <Overlay onClick={overlayClickHandler} />
       <div className={classes.container}>
-        <div className={classes.cardcontent}>
+        <motion.div
+          variants={NotesOpenAnimation}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className={classes.cardcontent}
+        >
           <div className={classes.cardbtn}>
             <img
               className={classes.deleteicon}
@@ -40,7 +48,7 @@ const ViewNotes = () => {
             </div>
             <p className={classes.carddate}>Date Created: 22/05/2001</p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </Fragment>
   );
