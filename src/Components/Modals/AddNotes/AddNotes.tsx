@@ -1,15 +1,22 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../../Store/ui-slice";
 import classes from "./AddNotes.module.css";
 import Overlay from "../../UI/Overlay";
 import { motion } from "framer-motion";
 import { NotesOpenAnimation } from "../../../Animations/Notes-Animations";
-import { notesActions } from "../../../Store/notes.slice";
 import useInput from "../../../Hooks/use-Input";
+import useHttp from "../../../Hooks/use-http";
+import { v4 as uuidv4 } from "uuid";
+
+//I AM FULLY AWARE THAT I CAN BE BREAKING THIS UP INTO MORE COMPONETS FOR BETTER REDABILITY. BUT MY CURRENT FOCUS IS LEARNING REACT WITH 'TYPESCRIPT'
+// MY OTHER REACT PROJECTS WILL DEMON STRAIGHT MY COMPONENT ORGANIZATION.
 
 const AddNotes = () => {
   const dispatch = useDispatch();
+
+  const { sendRequest } = useHttp();
+  const [selectColor, setSelectColor] = useState<string>("#d7d7d7");
 
   const {
     value: entredSubjectValue,
@@ -65,16 +72,32 @@ const AddNotes = () => {
     if (!formIsValid) {
       return;
     }
+    const noteUuidv4 = uuidv4();
 
-    dispatch(
-      notesActions.addNote({
+    const D = new Date();
+    const day = ("0" + D.getDate()).slice(-2);
+    const month = ("0" + (D.getMonth() + 1)).slice(-2);
+    const year = D.getFullYear();
+    const date = `${day}/${month}/${year}`;
+
+    sendRequest({
+      typeOfRequest: "PRODUCTLISTDATA",
+      method: "POST",
+      url: `${process.env.REACT_APP_ADDNOTES_FIREBASE_API}.json`,
+      data: {
+        id: noteUuidv4,
         subject: entredSubjectValue,
         title: entredTitleValue,
         categorie: entredCategorieValue,
         description: entredDescriptionValue,
-        color: "#fff",
-      })
-    );
+        color: selectColor,
+        date: date,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
     resetSubjectInput();
     resetTitleInput();
     resetCategorieInput();
@@ -108,15 +131,35 @@ const AddNotes = () => {
           animate="visible"
           exit="exit"
           className={classes.cardbody}
+          style={{ border: `solid 2px ${selectColor}` }}
         >
           <div className={classes.cardcolorcontainer}>
-            <div className={classes.cardcolorgreen}></div>
-            <div className={classes.cardcolorblue}></div>
-            <div className={classes.cardcolorpurple}></div>
-            <div className={classes.cardcolorpink}></div>
-            <div className={classes.cardcolororange}></div>
+            <div
+              onClick={() => setSelectColor("#55ef80")}
+              className={classes.cardcolorgreen}
+            ></div>
+            <div
+              onClick={() => setSelectColor("#55caef")}
+              className={classes.cardcolorblue}
+            ></div>
+            <div
+              onClick={() => setSelectColor("#7d55ef")}
+              className={classes.cardcolorpurple}
+            ></div>
+            <div
+              onClick={() => setSelectColor("#ef558c")}
+              className={classes.cardcolorpink}
+            ></div>
+            <div
+              onClick={() => setSelectColor("#ef5555")}
+              className={classes.cardcolororange}
+            ></div>
           </div>
-          <label className={classes.subjecttext} htmlFor="subject">
+          <label
+            style={{ color: selectColor }}
+            className={classes.subjecttext}
+            htmlFor="subject"
+          >
             Subject
           </label>
           <input
@@ -127,7 +170,11 @@ const AddNotes = () => {
             id="subject"
             className={subjectInputHasError}
           />
-          <label className={classes.titletext} htmlFor="title">
+          <label
+            style={{ color: selectColor }}
+            className={classes.titletext}
+            htmlFor="title"
+          >
             Title
           </label>
           <input
@@ -138,7 +185,11 @@ const AddNotes = () => {
             id="title"
             className={titleInputHasError}
           />
-          <label className={classes.categorietext} htmlFor="categorie">
+          <label
+            style={{ color: selectColor }}
+            className={classes.categorietext}
+            htmlFor="categorie"
+          >
             Categorie
           </label>
           <input
@@ -157,7 +208,11 @@ const AddNotes = () => {
             className={descriptionInputHasError}
           />
           <div className={classes.btncontainer}>
-            <button type="submit" className={classes.addbtn}>
+            <button
+              style={{ backgroundColor: selectColor }}
+              type="submit"
+              className={classes.addbtn}
+            >
               Add
             </button>
           </div>
