@@ -3,21 +3,19 @@ import classes from "./NoteItems.module.css";
 import DeleteIcon from "../../Assets/Icons/bx-trash.svg";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../Store/ui-slice";
+import { NoteItemArry } from "../../Store/notes.slice";
 
-const NoteItems = () => {
+const NoteItems: React.FC<NoteItemArry> = (props) => {
   const dispatch = useDispatch();
 
   const cardBodyClickHandler = () => {
     dispatch(uiActions.viewNoteHandler());
   };
 
-  const test = () => {
-    console.log("CHEESe");
-  };
   return (
     <div className={classes.container}>
       <div className={classes.cardcontent}>
-        <div onClick={test} className={classes.cardbtn}>
+        <div className={classes.cardbtn}>
           <img
             className={classes.deleteicon}
             src={DeleteIcon}
@@ -25,20 +23,15 @@ const NoteItems = () => {
           />
         </div>
         <div onClick={cardBodyClickHandler} className={classes.cardbody}>
-          <p className={classes.cardsubject}>Running</p>
-          <h1 className={classes.cardtitle}>Gym Work</h1>
+          <p className={classes.cardsubject}>{props.subject}</p>
+          <h1 className={classes.cardtitle}>{props.title}</h1>
           <div className={classes.cardcategorieborder}>
-            <p className={classes.cardcategorie}>Activity</p>
+            <p className={classes.cardcategorie}>{props.categorie}</p>
           </div>
           <div className={classes.cardcontent}>
-            <p className={classes.carddescription}>
-              Seated leg press (10 reps x 3 sets) Seated shoulder press (10 reps
-              x 3 sets) Close grip lat pulldown (10 reps x 3 sets) Bodyweight
-              lunges (10 reps x 3 sets) Full/kneeling press ups (10 reps x 3
-              sets) Plank (30 secs x 3) Leg raises (10 reps x 3 sets)
-            </p>
+            <p className={classes.carddescription}>{props.description}</p>
           </div>
-          <p className={classes.carddate}>Date Created: 22/05/2001</p>
+          <p className={classes.carddate}>Date Created: {props.date}</p>
         </div>
       </div>
     </div>

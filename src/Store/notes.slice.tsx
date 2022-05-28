@@ -11,13 +11,7 @@ export interface NoteItemArry {
 }
 
 interface AddActions {
-  id: string;
-  subject: string;
-  title: string;
-  categorie: string;
-  description: string;
-  color: string;
-  date: string;
+  res: NoteItemArry[];
 }
 
 interface notesHandlers {
@@ -33,18 +27,13 @@ const notesSlice = createSlice({
   initialState: initialState,
   reducers: {
     addNote(state, actions: PayloadAction<AddActions>) {
-      state.noteItems = [
-        ...state.noteItems,
-        {
-          id: actions.payload.id,
-          subject: actions.payload.subject,
-          title: actions.payload.title,
-          categorie: actions.payload.categorie,
-          description: actions.payload.description,
-          color: actions.payload.color,
-          date: actions.payload.date,
-        },
-      ];
+      const addNote = actions.payload;
+      const notesList = [];
+      for (let id in addNote.res) {
+        notesList.push(addNote.res[id]);
+      }
+
+      state.noteItems = notesList;
     },
     // removeNote(state, actions: PayloadAction<string>) {
     //   state.noteItems = state.noteItems.filter(

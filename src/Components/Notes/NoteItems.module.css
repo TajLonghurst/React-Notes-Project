@@ -6,7 +6,7 @@
   margin: 1rem;
 }
 .cardbody {
-  max-width: 20rem;
+  width: 20rem;
   max-height: 23rem;
   position: relative;
   border: solid 2px #55caef;

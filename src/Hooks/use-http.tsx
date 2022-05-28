@@ -1,20 +1,12 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { notesActions } from "../Store/notes.slice";
+import { NoteItemArry, notesActions } from "../Store/notes.slice";
 
 type RequestConfig = {
   method: string;
   url: string;
-  data?: {
-    id: string;
-    subject: string;
-    title: string;
-    categorie: string;
-    description: string;
-    color: string;
-    date: string;
-  };
+  data?: NoteItemArry;
   headers: {};
   typeOfRequest: string;
 };
@@ -42,10 +34,8 @@ const useHttp = () => {
           headers: axiosHeaders,
         });
 
-        const res = response.data;
-
         if (typeOfRequest === "NOTELISTS") {
-          dispatch(notesActions.addNote(res));
+          dispatch(notesActions.addNote({ res: response.data }));
         }
 
         //Could use a useReducer() Hook
