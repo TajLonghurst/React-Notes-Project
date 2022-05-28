@@ -8,6 +8,7 @@ export interface NoteItemArry {
   description: string;
   color: string;
   date?: string;
+  fbId?: string;
 }
 
 interface AddActions {
@@ -27,19 +28,19 @@ const notesSlice = createSlice({
   initialState: initialState,
   reducers: {
     addNote(state, actions: PayloadAction<AddActions>) {
-      const addNote = actions.payload;
+      const addNote = actions.payload.res;
       const notesList = [];
-      for (let id in addNote.res) {
-        notesList.push(addNote.res[id]);
+      for (let fbId in addNote) {
+        notesList.push({ fbId, ...addNote[fbId] });
       }
 
       state.noteItems = notesList;
     },
-    // removeNote(state, actions: PayloadAction<string>) {
-    //   state.noteItems = state.noteItems.filter(
-    //     (id) => id !== actions.payload.id
-    //   );
-    // },
+    removeNote(state, actions: PayloadAction<{ id: string }>) {
+      state.noteItems = state.noteItems.filter(
+        (id) => id.id !== actions.payload.id
+      );
+    },
   },
 });
 

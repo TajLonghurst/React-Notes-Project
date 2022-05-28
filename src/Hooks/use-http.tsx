@@ -6,7 +6,7 @@ import { NoteItemArry, notesActions } from "../Store/notes.slice";
 type RequestConfig = {
   method: string;
   url: string;
-  data?: NoteItemArry;
+  data?: NoteItemArry | NoteItemArry[];
   headers: {};
   typeOfRequest: string;
 };

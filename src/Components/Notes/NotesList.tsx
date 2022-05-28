@@ -29,13 +29,14 @@ const NotesList = () => {
     <div className={classes.container}>
       <div className={classes.row}>
         <div className="row">
-          {noteItems.map((items) => {
+          {noteItems.map((items, index) => {
             return (
               <div
                 key={items.id}
                 className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 col-sm-12"
               >
                 <NoteItems
+                  fbId={items.fbId}
                   key={items.id}
                   id={items.id}
                   subject={items.subject}
