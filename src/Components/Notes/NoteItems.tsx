@@ -12,7 +12,7 @@ const NoteItems: React.FC<NoteItemArry> = (props) => {
   const { sendRequest } = useHttp();
 
   const cardBodyClickHandler = () => {
-    dispatch(uiActions.viewNoteHandler());
+    dispatch(uiActions.viewNoteHandler({ overRideViewNoteState: false }));
   };
 
   const deleteCardHandler = () => {

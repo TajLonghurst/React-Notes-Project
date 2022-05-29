@@ -54,7 +54,7 @@ const AddNotes = () => {
   } = useInput("Description");
 
   const overlayClickHandler = () => {
-    dispatch(uiActions.addNoteHandler());
+    dispatch(uiActions.addNoteHandler({ overRideAddNoteState: false }));
   };
 
   const formSumbitHandler = (event: React.FormEvent<HTMLFormElement>) => {

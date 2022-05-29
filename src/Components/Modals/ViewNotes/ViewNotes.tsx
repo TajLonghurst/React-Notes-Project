@@ -11,7 +11,7 @@ const ViewNotes = () => {
   const dispatch = useDispatch();
 
   const overlayClickHandler = () => {
-    dispatch(uiActions.viewNoteHandler());
+    dispatch(uiActions.viewNoteHandler({ overRideViewNoteState: false }));
   };
 
   return (

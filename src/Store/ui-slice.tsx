@@ -3,24 +3,41 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface uiHandlers {
   addNoteIsActive: boolean;
   viewNoteIsActive: boolean;
+  overRideAddNoteState: boolean;
+  overRideViewNoteState: boolean;
 }
 
 const initialState: uiHandlers = {
   addNoteIsActive: false,
   viewNoteIsActive: false,
+  overRideAddNoteState: false,
+  overRideViewNoteState: false,
 };
 
 const uiSlice = createSlice({
   name: "UI",
   initialState: initialState,
   reducers: {
-    addNoteHandler(state) {
-      state.addNoteIsActive = !state.addNoteIsActive;
+    addNoteHandler(
+      state,
+      actions: PayloadAction<{ overRideAddNoteState: boolean | null }>
+    ) {
+      if (actions.payload.overRideAddNoteState === true) {
+        state.addNoteIsActive = actions.payload.overRideAddNoteState;
+      } else {
+        state.addNoteIsActive = !state.addNoteIsActive;
+      }
     },
-    viewNoteHandler(state) {
-      state.viewNoteIsActive = !state.viewNoteIsActive;
+    viewNoteHandler(
+      state,
+      actions: PayloadAction<{ overRideViewNoteState: boolean | null }>
+    ) {
+      if (actions.payload.overRideViewNoteState) {
+        state.viewNoteIsActive = actions.payload.overRideViewNoteState;
+      } else {
+        state.viewNoteIsActive = !state.viewNoteIsActive;
+      }
     },
-    test(state, actions: PayloadAction<boolean>) {},
   },
 });
 

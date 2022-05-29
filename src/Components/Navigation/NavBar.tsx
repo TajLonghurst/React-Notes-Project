@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Button from "../UI/Button";
 import classes from "./NavBar.module.css";
 import { uiActions } from "../../Store/ui-slice";
+import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const dispatch = useDispatch();
+  let location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname.toString() === "/notes/addNote") {
+      dispatch(uiActions.addNoteHandler({ overRideAddNoteState: true }));
+    }
+  }, [dispatch, location]);
+
   const btnOnClickHandler = () => {
-    dispatch(uiActions.addNoteHandler());
+    dispatch(uiActions.addNoteHandler({ overRideAddNoteState: null }));
   };
 
   return (
