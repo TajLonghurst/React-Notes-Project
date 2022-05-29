@@ -16,7 +16,7 @@ const ViewNotes = () => {
 
   return (
     <Fragment>
-      <Overlay onClick={overlayClickHandler} />
+      <Overlay to={`/`} onClick={overlayClickHandler} />
       <div className={classes.container}>
         <motion.div
           variants={NotesOpenAnimation}

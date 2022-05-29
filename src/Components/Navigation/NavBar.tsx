@@ -15,7 +15,9 @@ const NavBar = () => {
       <div className={classes.navbar}>
         <h1 className={classes.logo}>N2S</h1>
         <div className={classes.navBtn}>
-          <Button onClick={btnOnClickHandler}>Creat Note</Button>
+          <Button to={"/notes/addNote"} onClick={btnOnClickHandler}>
+            Creat Note
+          </Button>
         </div>
       </div>
     </nav>

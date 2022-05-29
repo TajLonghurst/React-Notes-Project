@@ -29,7 +29,7 @@ const NotesList = () => {
     <div className={classes.container}>
       <div className={classes.row}>
         <div className="row">
-          {noteItems.map((items, index) => {
+          {noteItems.map((items) => {
             return (
               <div
                 key={items.id}

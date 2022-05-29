@@ -1,17 +1,17 @@
-import { Fragment } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import store from "./Store/index";
 import App from "./App";
 import "./index.css";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <Provider store={store}>
-    <Fragment>
+  <BrowserRouter>
+    <Provider store={store}>
       <App />
-    </Fragment>
-  </Provider>
+    </Provider>
+  </BrowserRouter>
 );

@@ -1,39 +1,26 @@
-import { Fragment } from "react";
-import { ModalAddNotes } from "./Components/Modals/AddNotes/ModalAddNotes";
-import NavBar from "./Components/Navigation/NavBar";
-import NotesList from "./Components/Notes/NotesList";
-import { RootState } from "./Store";
-import { useSelector } from "react-redux";
-import { ModalViewNotes } from "./Components/Modals/ViewNotes/ModalViewNotes";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import ViewNotesPage from "./Pages/ViewNotesPage";
+import NotesPage from "./Pages/NotesPage";
 import { AnimatePresence } from "framer-motion";
+import NotesAddPage from "./Pages/NotesAddPage";
 
 function App() {
-  const addNoteIsActive = useSelector(
-    (state: RootState) => state.ui.addNoteIsActive
-  );
-  const ViewNotesIsActive = useSelector(
-    (state: RootState) => state.ui.viewNoteIsActive
-  );
-
+  const location = useLocation();
   return (
-    <Fragment>
-      <AnimatePresence
-        initial={true}
-        exitBeforeEnter={true}
-        onExitComplete={() => null}
-      >
-        {addNoteIsActive && <ModalAddNotes />}
-      </AnimatePresence>
-      <AnimatePresence
-        initial={true}
-        exitBeforeEnter={true}
-        onExitComplete={() => null}
-      >
-        {ViewNotesIsActive && <ModalViewNotes />}
-      </AnimatePresence>
-      <NavBar />
-      <NotesList />
-    </Fragment>
+    <AnimatePresence
+      initial={true}
+      exitBeforeEnter={true}
+      onExitComplete={() => null}
+    >
+      <Routes key={location.pathname} location={location}>
+        <Route path="/" element={<NotesPage />}>
+          <Route path="/notes" element={<NotesPage />} />
+        </Route>
+        <Route path="/notes/:noteId" element={<ViewNotesPage />} />
+        <Route path="/notes/addNote" element={<NotesAddPage />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </AnimatePresence>
   );
 }
 

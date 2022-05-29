@@ -17,6 +17,9 @@
   background-color: #fff;
   cursor: pointer;
 }
+.link {
+  text-decoration: none;
+}
 .cardcontent {
   cursor: pointer;
 }
