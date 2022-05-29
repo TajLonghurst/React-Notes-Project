@@ -1,18 +1,16 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ViewNotesPage from "./Pages/ViewNotesPage";
 import NotesPage from "./Pages/NotesPage";
-import { AnimatePresence } from "framer-motion";
 import NotesAddPage from "./Pages/NotesAddPage";
+import NavBar from "./Components/Navigation/NavBar";
+import { Fragment } from "react";
 
 function App() {
   const location = useLocation();
   return (
-    <AnimatePresence
-      initial={true}
-      exitBeforeEnter={true}
-      onExitComplete={() => null}
-    >
-      <Routes key={location.pathname} location={location}>
+    <Fragment>
+      <NavBar />
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<NotesPage />}>
           <Route path="/notes" element={<NotesPage />} />
         </Route>
@@ -20,7 +18,7 @@ function App() {
         <Route path="/notes/addNote" element={<NotesAddPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </AnimatePresence>
+    </Fragment>
   );
 }
 

@@ -32,7 +32,7 @@ const uiSlice = createSlice({
       state,
       actions: PayloadAction<{ overRideViewNoteState: boolean | null }>
     ) {
-      if (actions.payload.overRideViewNoteState) {
+      if (actions.payload.overRideViewNoteState === true) {
         state.viewNoteIsActive = actions.payload.overRideViewNoteState;
       } else {
         state.viewNoteIsActive = !state.viewNoteIsActive;

@@ -115,8 +115,17 @@
 @media (min-width: 768px) {
 }
 @media (min-width: 992px) {
+  .cardbody {
+    width: 17rem;
+  }
 }
 @media (min-width: 1200px) {
+  .cardbody {
+    width: 15rem;
+  }
 }
 @media (min-width: 1400px) {
+  .cardbody {
+    width: 14rem;
+  }
 }

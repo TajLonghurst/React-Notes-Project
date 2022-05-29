@@ -36,7 +36,7 @@ const notesSlice = createSlice({
 
       state.noteItems = notesList;
     },
-    removeNote(state, actions: PayloadAction<{ id: string }>) {
+    removeNote(state, actions: PayloadAction<{ id: string | undefined }>) {
       state.noteItems = state.noteItems.filter(
         (id) => id.id !== actions.payload.id
       );

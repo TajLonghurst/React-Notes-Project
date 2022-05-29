@@ -47,7 +47,7 @@ const NoteItems: React.FC<NoteItemArry> = (props) => {
             onClick={cardBodyClickHandler}
             className={classes.link}
             to={`/notes/${props.fbId}`}
-            state={{ data: props }}
+            state={{ noteViewData: props }}
           >
             <div
               style={{ border: `solid 2px ${props.color}` }}

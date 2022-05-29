@@ -3,8 +3,6 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "../../../Store/ui-slice";
 import classes from "./AddNotes.module.css";
 import Overlay from "../../UI/Overlay";
-import { motion } from "framer-motion";
-import { NotesOpenAnimation } from "../../../Animations/Notes-Animations";
 import useInput from "../../../Hooks/use-Input";
 import useHttp from "../../../Hooks/use-http";
 import { v4 as uuidv4 } from "uuid";
@@ -124,12 +122,8 @@ const AddNotes = () => {
     <Fragment>
       <Overlay to={`/`} onClick={overlayClickHandler} />
       <div className={classes.container}>
-        <motion.form
+        <form
           onSubmit={formSumbitHandler}
-          variants={NotesOpenAnimation}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
           className={classes.cardbody}
           style={{ border: `solid 2px ${selectColor}` }}
         >
@@ -216,7 +210,7 @@ const AddNotes = () => {
               Add
             </button>
           </div>
-        </motion.form>
+        </form>
       </div>
     </Fragment>
   );

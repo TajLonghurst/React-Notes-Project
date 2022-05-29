@@ -1,54 +1,66 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import classes from "./ViewNotes.module.css";
-import DeleteIcon from "../../../Assets/Icons/bx-trash.svg";
+import xIcon from "../../../Assets/Icons/bx-x.svg";
 import Overlay from "../../UI/Overlay";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../../Store/ui-slice";
-import { NotesOpenAnimation } from "../../../Animations/Notes-Animations";
-import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
+import { NoteItemArry } from "../../../Store/notes.slice";
+import { useNavigate } from "react-router-dom";
 
 const ViewNotes = () => {
+  const [viewData, setViewData] = useState<NoteItemArry>();
+  const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
+  const date: any = location.state;
+
+  useEffect(() => {
+    if (!date) {
+      return;
+    }
+    setViewData(date.noteViewData);
+  }, [date]);
 
   const overlayClickHandler = () => {
     dispatch(uiActions.viewNoteHandler({ overRideViewNoteState: false }));
+  };
+
+  const deleteCardHandler = () => {
+    dispatch(uiActions.viewNoteHandler({ overRideViewNoteState: false }));
+    navigate("/");
   };
 
   return (
     <Fragment>
       <Overlay to={`/`} onClick={overlayClickHandler} />
       <div className={classes.container}>
-        <motion.div
-          variants={NotesOpenAnimation}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className={classes.cardcontent}
-        >
-          <div className={classes.cardbtn}>
-            <img
-              className={classes.deleteicon}
-              src={DeleteIcon}
-              alt="Icon Failed"
-            />
+        <div className={classes.cardcontent}>
+          <div
+            onClick={deleteCardHandler}
+            style={{ backgroundColor: viewData?.color }}
+            className={classes.cardbtn}
+          >
+            <img className={classes.xicon} src={xIcon} alt="Icon Failed" />
           </div>
-          <div className={classes.cardbody}>
-            <p className={classes.cardsubject}>Running</p>
-            <h1 className={classes.cardtitle}>Gym Work</h1>
-            <div className={classes.cardcategorieborder}>
-              <p className={classes.cardcategorie}>Activity</p>
+          <div
+            style={{ border: `2px solid ${viewData?.color}` }}
+            className={classes.cardbody}
+          >
+            <p className={classes.cardsubject}>{viewData?.subject}</p>
+            <h1 className={classes.cardtitle}>{viewData?.title}</h1>
+            <div
+              style={{ backgroundColor: viewData?.color }}
+              className={classes.cardcategorieborder}
+            >
+              <p className={classes.cardcategorie}>{viewData?.categorie}</p>
             </div>
             <div className={classes.cardcontent}>
-              <p className={classes.carddescription}>
-                Seated leg press (10 reps x 3 sets) Seated shoulder press (10
-                reps x 3 sets) Close grip lat pulldown (10 reps x 3 sets)
-                Bodyweight lunges (10 reps x 3 sets) Full/kneeling press ups (10
-                reps x 3 sets) Plank (30 secs x 3) Leg raises (10 reps x 3 sets)
-              </p>
+              <p className={classes.carddescription}>{viewData?.description}</p>
             </div>
-            <p className={classes.carddate}>Date Created: 22/05/2001</p>
+            <p className={classes.carddate}>Date Created: {viewData?.date}</p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </Fragment>
   );
