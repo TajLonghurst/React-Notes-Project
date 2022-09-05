@@ -50,8 +50,8 @@ const NoteItems: React.FC<NoteItemArry> = (props) => {
             state={{ noteViewData: props }}
           >
             <div
-              style={{ border: `solid 2px ${props.color}` }}
               className={classes.cardbody}
+              style={{ border: `solid 2px ${props.color}` }}
             >
               <p className={classes.cardsubject}>{props.subject}</p>
               <h1 className={classes.cardtitle}>{props.title}</h1>

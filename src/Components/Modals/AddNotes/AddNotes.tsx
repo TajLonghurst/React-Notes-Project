@@ -121,7 +121,7 @@ const AddNotes = () => {
   return (
     <Fragment>
       <Overlay to={`/`} onClick={overlayClickHandler} />
-      <div className={classes.container}>
+      <div className={classes.cardcontainer}>
         <form
           onSubmit={formSumbitHandler}
           className={classes.cardbody}

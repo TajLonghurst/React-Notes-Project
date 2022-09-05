@@ -1,13 +1,12 @@
-.container {
-  position: fixed;
+.cardcontainer {
+  position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 1002;
   transform: translate(-50%, -50%);
+  z-index: 1002;
 }
 .cardbody {
-  background-color: #fff;
-  width: 35rem;
+  width: 30rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,6 +14,7 @@
   border-radius: 15px;
   border: solid 2px #d7d7d7;
   padding-bottom: 1.5rem;
+  background-color: #fff;
 }
 .cardcolorcontainer {
   position: absolute;
@@ -75,29 +75,6 @@
   font-size: 1.5rem;
   font-family: "Akshar-Regular";
 }
-
-.inputsubject {
-  width: 15rem;
-}
-.inputtitle {
-  width: 30rem;
-}
-.inputcategorie {
-  width: 15rem;
-}
-
-.inputsubjecterror {
-  border: red 1px solid;
-  width: 15rem;
-}
-.inputtitleerror {
-  border: red 1px solid;
-  width: 30rem;
-}
-.inputcategorieerror {
-  border: red 1px solid;
-  width: 15rem;
-}
 .subjecttext,
 .titletext,
 .categorietext {
@@ -157,85 +134,22 @@
 
 @media (max-width: 576px) {
   .cardbody {
-    width: 15rem;
-  }
-  .inputsubject {
-    width: 14rem;
-  }
-  .inputtitle {
-    width: 14rem;
-  }
-  .inputcategorie {
-    width: 14rem;
+    width: 17rem;
   }
 }
 @media (min-width: 576px) {
   .cardbody {
-    width: 25rem;
-  }
-  .inputsubject {
-    width: 15rem;
-  }
-  .inputtitle {
-    width: 24rem;
-  }
-  .inputcategorie {
-    width: 15rem;
+    width: fit-content;
   }
 }
 @media (min-width: 768px) {
   .cardbody {
-    width: 35rem;
-  }
-  .inputsubject {
-    width: 15rem;
-  }
-  .inputtitle {
     width: 30rem;
-  }
-  .inputcategorie {
-    width: 15rem;
   }
 }
 @media (min-width: 992px) {
-  .cardbody {
-    width: 35rem;
-  }
-  .inputsubject {
-    width: 15rem;
-  }
-  .inputtitle {
-    width: 30rem;
-  }
-  .inputcategorie {
-    width: 15rem;
-  }
 }
 @media (min-width: 1200px) {
-  .cardbody {
-    width: 35rem;
-  }
-  .inputsubject {
-    width: 15rem;
-  }
-  .inputtitle {
-    width: 30rem;
-  }
-  .inputcategorie {
-    width: 15rem;
-  }
 }
 @media (min-width: 1400px) {
-  .cardbody {
-    width: 35rem;
-  }
-  .inputsubject {
-    width: 15rem;
-  }
-  .inputtitle {
-    width: 30rem;
-  }
-  .inputcategorie {
-    width: 15rem;
-  }
 }
