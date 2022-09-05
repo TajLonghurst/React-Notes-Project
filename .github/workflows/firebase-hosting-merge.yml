@@ -8,7 +8,7 @@ name: Deploy to Firebase Hosting on merge
       - master
 
 env:
-  REACT_APP_ADDNOTES_FIREBASE_API: ${{ secret.REACT_APP_ADDNOTES_FIREBASE_API }}
+  REACT_APP_ADDNOTES_FIREBASE_API: ${{ secrets.REACT_APP_ADDNOTES_FIREBASE_API }}
 
 jobs:
   build_and_deploy:
