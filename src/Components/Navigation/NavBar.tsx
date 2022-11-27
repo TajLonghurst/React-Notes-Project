@@ -25,7 +25,7 @@ const NavBar = () => {
         <h1 className={classes.logo}>N2S</h1>
         <div className={classes.navBtn}>
           <Button to={"/notes/addNote"} onClick={btnOnClickHandler}>
-            Creat Note
+            Create Note
           </Button>
         </div>
       </div>
