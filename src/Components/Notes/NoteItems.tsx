@@ -37,11 +37,7 @@ const NoteItems: React.FC<NoteItemArry> = (props) => {
             style={{ background: props.color }}
             className={classes.cardbtn}
           >
-            <img
-              className={classes.deleteicon}
-              src={DeleteIcon}
-              alt="Icon Failed"
-            />
+            <img className={classes.deleteicon} src={DeleteIcon} alt="Icon Failed" />
           </div>
           <Link
             onClick={cardBodyClickHandler}
@@ -49,16 +45,10 @@ const NoteItems: React.FC<NoteItemArry> = (props) => {
             to={`/notes/${props.fbId}`}
             state={{ noteViewData: props }}
           >
-            <div
-              className={classes.cardbody}
-              style={{ border: `solid 2px ${props.color}` }}
-            >
+            <div className={classes.cardbody} style={{ border: `solid 2px ${props.color}` }}>
               <p className={classes.cardsubject}>{props.subject}</p>
               <h1 className={classes.cardtitle}>{props.title}</h1>
-              <div
-                style={{ background: props.color }}
-                className={classes.cardcategorieborder}
-              >
+              <div style={{ background: props.color }} className={classes.cardcategorieborder}>
                 <p className={classes.cardcategorie}>{props.categorie}</p>
               </div>
               <div className={classes.cardcontent}>

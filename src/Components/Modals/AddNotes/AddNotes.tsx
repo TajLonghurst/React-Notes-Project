@@ -6,15 +6,17 @@ import Overlay from "../../UI/Overlay";
 import useInput from "../../../Hooks/use-Input";
 import useHttp from "../../../Hooks/use-http";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 //I AM FULLY AWARE THAT I CAN BE BREAKING THIS UP INTO MORE COMPONETS FOR BETTER REDABILITY. BUT MY CURRENT FOCUS IS LEARNING REACT WITH 'TYPESCRIPT'
 // MY OTHER REACT PROJECTS WILL DEMON STRAIGHT MY COMPONENT ORGANIZATION.
 
 const AddNotes = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { sendRequest } = useHttp();
-  const [selectColor, setSelectColor] = useState<string>("#d7d7d7");
+  const [selectColor, setSelectColor] = useState<string>("#55ef80");
 
   const {
     value: entredSubjectValue,
@@ -70,6 +72,7 @@ const AddNotes = () => {
     if (!formIsValid) {
       return;
     }
+
     const noteUuidv4 = uuidv4();
 
     const D = new Date();
@@ -100,6 +103,9 @@ const AddNotes = () => {
     resetTitleInput();
     resetCategorieInput();
     resetDescriptionInput();
+
+    dispatch(uiActions.addNoteHandler({ overRideAddNoteState: false }));
+    navigate("/");
   };
 
   const subjectInputHasError = entredSubjectHasError
@@ -128,32 +134,19 @@ const AddNotes = () => {
           style={{ border: `solid 2px ${selectColor}` }}
         >
           <div className={classes.cardcolorcontainer}>
-            <div
-              onClick={() => setSelectColor("#55ef80")}
-              className={classes.cardcolorgreen}
-            ></div>
-            <div
-              onClick={() => setSelectColor("#55caef")}
-              className={classes.cardcolorblue}
-            ></div>
+            <div onClick={() => setSelectColor("#55ef80")} className={classes.cardcolorgreen}></div>
+            <div onClick={() => setSelectColor("#55caef")} className={classes.cardcolorblue}></div>
             <div
               onClick={() => setSelectColor("#7d55ef")}
               className={classes.cardcolorpurple}
             ></div>
-            <div
-              onClick={() => setSelectColor("#ef558c")}
-              className={classes.cardcolorpink}
-            ></div>
+            <div onClick={() => setSelectColor("#ef558c")} className={classes.cardcolorpink}></div>
             <div
               onClick={() => setSelectColor("#ef5555")}
               className={classes.cardcolororange}
             ></div>
           </div>
-          <label
-            style={{ color: selectColor }}
-            className={classes.subjecttext}
-            htmlFor="subject"
-          >
+          <label style={{ color: selectColor }} className={classes.subjecttext} htmlFor="subject">
             Subject
           </label>
           <input
@@ -164,18 +157,14 @@ const AddNotes = () => {
             id="subject"
             className={subjectInputHasError}
           />
-          <label
-            style={{ color: selectColor }}
-            className={classes.titletext}
-            htmlFor="title"
-          >
+          <label style={{ color: selectColor }} className={classes.titletext} htmlFor="title">
             Title
           </label>
           <input
             value={entredTitleValue}
             onChange={titleChangeHandler}
             onBlur={titleBlurHandler}
-            maxLength={46}
+            maxLength={10}
             id="title"
             className={titleInputHasError}
           />
@@ -184,7 +173,7 @@ const AddNotes = () => {
             className={classes.categorietext}
             htmlFor="categorie"
           >
-            Categorie
+            Category
           </label>
           <input
             value={entredCategorieValue}
