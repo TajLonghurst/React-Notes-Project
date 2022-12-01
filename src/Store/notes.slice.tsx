@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { fakeData } from "../Data/FakeProducts";
 
 export interface NoteItemArry {
   id: string;
@@ -17,10 +18,12 @@ interface AddActions {
 
 interface notesHandlers {
   noteItems: NoteItemArry[];
+  fakeData: NoteItemArry[];
 }
 
 const initialState: notesHandlers = {
   noteItems: [],
+  fakeData: fakeData,
 };
 
 const notesSlice = createSlice({
@@ -33,13 +36,11 @@ const notesSlice = createSlice({
       for (let fbId in addNote) {
         notesList.push({ fbId, ...addNote[fbId] });
       }
-
       state.noteItems = notesList;
     },
     removeNote(state, actions: PayloadAction<{ id: string | undefined }>) {
-      state.noteItems = state.noteItems.filter(
-        (id) => id.id !== actions.payload.id
-      );
+      state.noteItems = state.noteItems.filter((id) => id.id !== actions.payload.id);
+      state.fakeData = state.fakeData.filter((id) => id.id !== actions.payload.id);
     },
   },
 });

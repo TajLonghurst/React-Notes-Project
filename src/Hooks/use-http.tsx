@@ -21,9 +21,7 @@ const useHttp = () => {
       try {
         const axiosMethod = requestConfig.method;
         const axiosUrl = requestConfig.url;
-        const axiosData = requestConfig.data
-          ? JSON.stringify(requestConfig.data)
-          : null;
+        const axiosData = requestConfig.data ? JSON.stringify(requestConfig.data) : null;
         const axiosHeaders = requestConfig.headers ? requestConfig.headers : {};
         const typeOfRequest = requestConfig.typeOfRequest;
 
